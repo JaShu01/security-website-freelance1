@@ -1,0 +1,1707 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+body {
+  position: relative;
+  font-size: 12px;
+  color: #2a2a2a;
+  height: 100%;
+  font-family: Montserrat, sans-serif;
+  min-width: 1000px;
+  
+  
+}
+
+.navbar {
+  width: 100%;
+  height: 80px;
+  background-color: #000;
+  position: fixed; /* добавьте это */
+  top: auto;
+  z-index: 1000; /* добавьте это, чтобы убедиться, что navbar находится поверх остального контента */
+}
+
+.navbar .container {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  
+}
+
+.navbar-brand {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  margin-right: 5%;
+  margin-left: 2%;
+}
+
+.navbar-brand img {
+  height: 70%;
+  width: auto;
+  margin-top: 5px;
+}
+
+.logo-text {
+  color: #fff;
+  font-size: 10px;
+  font-weight: 100;
+  letter-spacing: 0.5px;
+}
+
+.navbar-menu {
+  margin-bottom: 0;
+  transition: transform 0.3s ease;
+}
+
+.navbar-menu li {
+  display: inline-block;
+}
+
+.navbar-menu li a {
+  display: inline-block;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  color: #ffffff;
+  font-weight: 550;
+  letter-spacing: 0.5px;
+  padding: 0 3rem;
+}
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-left: auto; /* Выравнивание справа */
+}
+
+.burger-menu .line {
+  background-color: #ffffff;
+  height: 2px;
+  width: 25px;
+  margin: 3px;
+}
+
+
+.navbar-menu.active {
+  display: block;
+}
+
+
+
+.navbar-menu li a:hover {
+  color: orange; /* Измените цвет на оранжевый при наведении */
+}
+
+
+
+.left-image {
+  width: 60%;
+  object-fit: cover;
+  clip-path: polygon(0 0, 100% 0, 50% 180%, 0 100%);
+  filter: blur(1px);
+}
+
+/* Ваши стили */
+
+.images-container {
+  display: flex;
+
+  background-color: #202020;
+  position: relative; /* Добавляем позиционирование для псевдоэлемента */
+  
+  padding-top: 80px;
+
+}
+
+/* Стили для засветления в форме круга */
+.images-container::before {
+  content: "";
+  position: absolute;
+  top: 60%;
+  left: 78%; /* Регулируйте положение засветления по горизонтали */
+  transform: translate(-50%, -50%);
+  width: 44%; /* Регулируйте размеры засветления здесь */
+  height: 100%; /* Регулируйте размеры засветления здесь */
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.3) 25%,
+    rgba(255, 255, 255, 0) 70%
+  ); /* Здесь настраиваем засветление */
+  border-radius: 50%;
+  pointer-events: none; /* Отключаем события мыши для псевдоэлемента */
+  filter: blur(25px);
+}
+
+.right-image {
+  width: 40%;
+  z-index: 1; /* Устанавливаем z-index на 1, чтобы изображение находилось выше элемента засветления */
+  object-fit: cover;
+  object-position: right center; /* Выравниваем изображение по правому краю контейнера */
+}
+
+.text-container {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  color: white;
+  z-index: 1;
+}
+
+.text-container h1 {
+  font-size: 1.7rem;
+  font-weight: 750;
+}
+
+.text-container p {
+  font-size: 0.7rem;
+  font-weight: 500;
+  margin-bottom: 6%;
+  line-height: 175%;
+}
+
+.button-container {
+  display: inline-block;
+  overflow: hidden;
+  background-color: #ffb72f;
+  border-radius: 5px;
+}
+
+.rounded-button {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  padding: 12px 20px;
+  font-size: 12px;
+  font-weight: 550;
+  cursor: pointer;
+  z-index: 1;
+  color: black;
+}
+
+.button-background {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: white;
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.rounded-button:hover .button-background {
+  width: 100%;
+}
+
+.left-image-reversed {
+  width: 50%;
+  object-fit: cover;
+  clip-path: polygon(0 0, 87% 0%, 100% 100%, 0 100%);
+}
+
+.text-second-container {
+  position: absolute;
+  top: 45%;
+  right: 28%;
+  transform: translate(50%, -50%);
+  color: white;
+  text-align: left;
+  z-index: 1;
+  letter-spacing: 0.5px;
+  font-size: 1.1rem;
+}
+
+.orange-text {
+  color: orange;
+  position: relative; /* добавьте это, чтобы псевдоэлемент был относительно этого элемента */
+  margin-bottom: 15%;
+}
+
+.white-text {
+  color: white;
+}
+
+.with-underline::after {
+  content: ""; /* пустое содержимое для псевдоэлемента */
+  display: block; /* блочный элемент */
+  width: 38%; /* ширина во всю ширину родительского элемента */
+  height: 0.1rem; /* высота линии */
+  background-color: white; /* белый цвет */
+  position: absolute; /* абсолютное позиционирование */
+  left: 0; /* выравнивание по левому краю */
+  bottom: -5px; /* расположение немного ниже текста */
+}
+
+.images-second-container {
+  display: flex;
+  background-color: #1e1d1dfd;
+  position: relative;
+}
+
+.images-third-container {
+  display: flex;
+  background-color: #1e1d1def;
+  position: relative;
+}
+.image-third-container {
+  flex: 1; /* Занимает половину ширины контейнера */
+  display: flex;
+  justify-content: flex-end; /* Выравнивание изображения по правому краю */
+}
+
+.right-image-reversed {
+  width: 50%; /* Установите ширину в 100% */
+  object-fit: cover;
+
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 20% 100%);
+}
+
+.text-third-container {
+  position: absolute;
+  top: 50%;
+  left: 27%; /* измените значение, чтобы выровнять текст по желанию */
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: left;
+  z-index: 1;
+  letter-spacing: 0.5px;
+  font-size: 1.1rem;
+}
+.text-third-container .with-underline::after {
+  width: 28%;
+}
+
+.section {
+  display: flex;
+  background-color: #1e1d1dfd;
+  position: relative;
+  padding: 8%;
+  height: 30vw;
+  width: 100%;
+  overflow: hidden;
+}
+.swiper-text {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 200%;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.swiper-container {
+  width: 50%;
+  height: 145%; /* или любая другая высота */
+  margin-left: auto; /* Выравнивание по центру */
+  margin-right: auto;
+  margin-top: 0;
+}
+
+.swiper-slide {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -2%;
+}
+.swiper-slide img:hover {
+  cursor: pointer;
+}
+
+.swiper-slide img {
+  width: 85%; /* или любая другая ширина */
+  height: 85%;
+  transition: all 0.3s;
+  z-index: 1;
+  border-radius: 4px;
+}
+
+.swiper-slide-active img {
+  transform: scale(1.2);
+  z-index: 2;
+}
+.image-container {
+  position: relative;
+}
+.image-label {
+  position: absolute;
+  bottom: 15%;
+  left: 0;
+
+  background-color: rgba(255, 165, 10, 0.4); /* Прозрачный желтый */
+  width: 85%;
+  text-align: center;
+  padding: 4px 0;
+  font-size: 14px;
+  color: white;
+  border-radius: 3px;
+}
+.swiper-slide-active .image-label {
+  z-index: 2; /* Больше, чем у изображения */
+}
+
+.next-steps {
+  background-color: #1e1d1def;
+  padding: 80px 0;
+  text-align: left;
+
+  justify-content: center;
+}
+
+.next-steps h2 {
+  color: white;
+  font-size: 28px;
+  font-weight: bold; /* делаем текст жирнее */
+  margin-left: 41%; /* Увеличиваем отступ справа для выравнивания заголовка */
+  font-weight: 800;
+}
+
+.steps {
+  margin-top: 60px; /* Увеличиваем верхний отступ */
+  margin-left: 35%; /* Отступ справа для выравнивания текста */
+}
+
+.step {
+  margin-bottom: 80px; /* Увеличиваем расстояние между блоками шагов */
+  position: relative; /* Добавляем относительное позиционирование для псевдоэлемента */
+  padding-left: 2%; /* Отступ слева для текста, чтобы не перекрывать круг */
+}
+
+.step p {
+  color: white;
+  font-size: 12px;
+  margin: 0; /* Убираем отступы между абзацами */
+  font-weight: 600;
+}
+/* Стили для псевдоэлементов, представляющих оранжевые круги с числами */
+
+.step::before {
+  content: ""; /* Пустое содержание для псевдоэлемента */
+  display: inline-block;
+  width: 65px; /* Размеры круга */
+  height: 65px;
+  background-color: rgba(255, 183, 47, 1); /* Оранжевый фон */
+  border-radius: 50%; /* Округление для круга */
+  text-align: center;
+  line-height: 65px; /* Выравнивание текста по вертикали */
+  color: black; /* Цвет текста */
+  font-weight: bold; /* Жирный текст */
+  margin-right: 12px; /* Отступ справа от круга */
+  position: absolute; /* Абсолютное позиционирование */
+  left: -18%; /* Позиционирование слева */
+  top: 50%; /* Позиционирование по центру блока по вертикали */
+  transform: translateY(-50%); /* Центрирование по вертикали */
+  font-size: 25px;
+}
+
+/* Специфичные числа для каждого круга */
+.step:nth-child(1)::before {
+  content: "1";
+}
+.step:nth-child(2)::before {
+  content: "2";
+}
+.step:nth-child(3)::before {
+  content: "3";
+}
+
+.step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: calc(
+    -18% + 32.5px
+  ); /* центр круга (13% смещение круга и половина его диаметра) */
+  top: calc(
+    50% + 32.5px
+  ); /* начало линии сразу после круга (50% от начала блока и половина его диаметра) */
+  width: 0.5px; /* толщина линии */
+  height: 150%;
+  background-color: white; /* цвет линии */
+}
+
+.uber-uns-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1e1d1d;
+  padding-bottom: 8%;
+  padding-top: 8%;
+  
+}
+
+.uber-uns-content {
+  display: flex;
+  align-items: flex-end;
+}
+
+.uber-uns-container {
+  flex: 1;
+  background-color: rgba(8, 8, 8, 0.475);
+  padding: 2%;
+
+  color: white;
+  margin-left: 10%; /* Добавленный отступ слева */
+}
+
+.uber-uns-title {
+  color: orange;
+  position: relative;
+  display: inline-block; /* чтобы размер линии был по размеру текста */
+  font-size: 1.7rem;
+  font-weight: bold; /* делаем текст жирнее */
+}
+
+.white-underline::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 1px;
+  background-color: white;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+.uber-uns-features {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start; /* Добавьте это для вертикального выравнивания по началу */
+  margin-bottom: 5%;
+}
+
+.feature-box {
+  margin-right: 12%;
+  margin-top: 5%;
+}
+
+.feature-icon {
+  background-color: white;
+  color: rgb(0, 0, 0);
+  width: 1.5rem;
+  height: 1.5rem;
+  text-align: center;
+  line-height: 20px;
+  margin-bottom: 5%;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.feature-text {
+  color: white;
+
+  font-size: 0.8rem; /* Устанавливаем меньший размер шрифта */
+  font-weight: 650;
+}
+
+.uber-uns-text p {
+  margin: 0;
+  
+  line-height: 1.1;
+  font-size: 0.85rem;
+}
+
+.uber-uns-image {
+  flex: 1;
+  /* Ограничиваем высоту до высоты контейнера */
+  max-height: 100%;
+  display: flex;
+  align-items: center; /* Центрирование по вертикали */
+}
+
+.uber-uns-image img {
+  width: 75%;
+  height: 100%; /* Максимальная высота - 100% контейнера */
+  object-fit: contain; /* Сохранение пропорций */
+}
+
+.semi-bold {
+  font-weight: 500; /* Вы можете выбрать значение от 100 до 900, где 400 - это нормальная жирность, а 700 - это bold. */
+}
+
+.consultation-section {
+  background-color: #000;
+  padding: 4%;
+  position: relative;
+  z-index: 2;
+}
+
+.consultation-section::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+  height: 95%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.2) 5%,
+    rgba(255, 255, 255, -10) 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  border: none;
+  filter: blur(15px);
+  z-index: -1;
+}
+
+.consultation-container {
+  background-color: rgb(44, 43, 43);
+  padding: 2%;
+  text-align: center;
+  margin: 0 auto;
+  width: 67%;
+}
+
+.consultation-container h2 {
+  color: white;
+  font-weight: bold;
+  margin-bottom: 3%;
+  font-size: 1.3rem;
+}
+
+.input-fields {
+  display: flex;
+  justify-content: center;
+  gap: 8%;
+}
+
+.input-fields input {
+  padding: 1%;
+  background-color: white;
+  border: none;
+}
+
+.input-fields button {
+  padding: 1.5% 3%;
+  background-color: orange;
+  color: black;
+  border: none;
+
+  cursor: pointer;
+}
+
+.thank-you-popup {
+  display: none;
+  position: fixed; /* Изменено с absolute на fixed */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(21, 21, 21);
+  padding: 7em; /* Увеличено с 20px на 40px */
+  text-align: center;
+  z-index: 100;
+}
+
+.thank-you-popup h3 {
+  color: orange;
+  margin: 0;
+  font-size: 1.8em; /* Увеличен размер шрифта */
+}
+
+.thank-you-popup p {
+  color: white;
+  font-size: 1.1em; /* Увеличен размер шрифта */
+  margin-top: 6%;
+}
+
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+  color: white;
+  font-size: 1.3rem;
+  background-color: transparent;
+  border: none; /* Убираем рамку, если элемент является кнопкой */
+}
+
+.new-popup,
+.additional-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(21, 21, 21);
+  width: 60%; /* Увеличьте ширину */
+  height: 40%; /* Сделайте высоту автоматической, чтобы она зависела от содержимого */
+  z-index: 100;
+}
+
+.new-popup-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Для вертикального выравнивания */
+  height: 100%; /* Чтобы занять всю высоту родительского элемента */
+}
+
+.new-popup-content,
+.additional-popup-content {
+  text-align: center;
+}
+
+.new-popup-btn {
+  background-color: black;
+  color: white; /* Установите основной цвет текста */
+  padding: 1.5%; /* Размер кнопки зависит от ширины фона поп-апа (30% от ширины) */
+  border-radius: 18px;
+  font-size: 1.1rem; /* Размер текста зависит от фона поп-апа */
+  cursor: pointer;
+  display: inline-block; /* Добавлено, чтобы дать возможность использовать <br> */
+  border: none;
+}
+
+.new-popup-btn .orange-text {
+  color: orange; /* Делаем часть текста оранжевой */
+}
+
+.new-popup-btn .white-text {
+  color: white; /* Делаем часть текста белой */
+}
+
+.or-text {
+  margin: 10%;
+  color: white;
+  font-size: 1.5rem; /* Размер текста зависит от фона поп-апа */
+}
+
+.popup-text {
+  text-align: center;
+  padding: 1rem; /* Используем vw для отступов */
+  
+ 
+}
+
+.popup-text p,
+.popup-text .contact-info span,
+.popup-text .final-text {
+  color: white;
+  margin: 0;
+  padding: 5px;
+  font-size: 0.8rem; /* Используем vw для размера шрифта */
+}
+
+.popup-text .orange-text {
+  color: orange;
+  font-size: 0.8rem; /* Используем vw для размера шрифта */
+}
+
+.contact-info {
+  margin-top: 3vh; /* Отступ между имэйлом и номером телефона */
+  margin-bottom: 3vh; /* Отступ между имэйлом и номером телефона */
+  display: flex;
+  justify-content: center;
+  
+}
+
+.additional-popup .popup-text .icon {
+  color: orange;
+}
+
+.additional-popup .popup-text .contact-info .phone {
+  margin-right: 3vw; /* Измените этот параметр на нужное вам значение */
+}
+
+/* Стили для нового поп-апа */
+.second {
+  /* стили будут похожи на стили вашего существующего поп-апа, но некоторые параметры будут изменены */
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(21, 21, 21);
+  width: 35%; /* Увеличьте ширину */
+  height: 65%; /* Сделайте высоту автоматической, чтобы она зависела от содержимого */
+  z-index: 100;
+}
+
+.popup-text-second {
+  margin-top: -5%;
+}
+.popup-text-second p {
+  margin-top: -2%;
+}
+
+.rounded-button-second {
+  margin-top: 4vw;
+  position: relative;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  padding: 3% 8%;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  z-index: 1;
+  color: white;
+  background-color: orange;
+}
+
+.input-fields-sec {
+  display: flex;
+  justify-content: center;
+  gap: 6%;
+  margin-top: 15%;
+}
+
+.input-fields-sec input {
+  padding: 2% 1%;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+footer {
+  background-color: #333; /* darker gray */
+  padding: 10px; /* less padding */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* align to the start (left) */
+}
+
+.footer-content {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* align to the start (left) */
+  padding-left: 15%; /* Add left padding here */
+}
+
+.logo-and-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logo {
+  width: 50px; /* smaller logo */
+  margin-left: 12%;
+}
+
+.impressum {
+  font-weight: 550;
+}
+
+.details {
+  margin: 0;
+  font-size: 0.8em; /* smaller text */
+}
+
+.datenschutz {
+  margin-top: 30px; /* Increased top margin */
+  margin-bottom: 0; /* no bottom margin */
+  font-weight: 550;
+  font-size: 1.2em; /* larger text */
+  align-self: center; /* center this element only */
+  border-left: 1px solid white; /* Left border */
+  border-right: 1px solid white; /* Right border */
+  padding: 0 10px; /* Padding on the sides to separate text from the borders */
+  margin-left: 100px;
+}
+
+.logo-texts {
+  color: #fff;
+  font-size: 10px;
+  font-weight: 100;
+  letter-spacing: 0.5px;
+  margin-bottom: 7%;
+}
+
+/* Стилизация для веб-кит браузеров, таких как Chrome, Safari */
+::-webkit-scrollbar {
+  width: 0.5rem; /* Ширина полосы прокрутки */
+}
+
+/* Стиль для язычка прокрутки */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.511); /* Оранжевый фон */
+  border-radius: 30px; /* Скругление углов */
+}
+
+/* Стиль для трека (фона) прокрутки */
+::-webkit-scrollbar-track {
+  background-color: rgba(14, 14, 14, 0.511); /* Оранжевый фон */
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: rgba(14, 14, 14, 0.511); /* Оранжевый фон */
+}
+
+
+/* Мобильные устройства с маленькими экранами */
+@media (max-width: 320px) {
+  /* Ваши стили */
+}
+
+/* Мобильные устройства с средними экранами */
+
+  @media (min-width: 321px) {
+    
+  /* Ваши стили */
+}
+
+/* Планшеты */
+@media (max-width: 1000px) {
+  /* Ваши стили */
+  .burger-menu {
+    display: flex;
+    z-index: 1002;
+    
+    
+    
+  }
+  .navbar-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%); /* Скрыть меню за правым краем экрана */
+    width: 250px;
+    height: 100vh;
+    background-color: #000;
+    overflow-y: auto;
+    z-index: 1001; /* Убедиться, что меню находится поверх остального контента */
+  }
+
+  .navbar-menu.active {
+    transform: translateX(0); /* Показать меню */
+  }
+
+  .navbar-menu li {
+    text-align: center; /* Выравнивание текста по центру */
+    width: 100%;
+  }
+  .navbar-menu li {
+    text-align: center; /* Выравнивание текста по центру */
+    width: 100%;
+    padding: 1rem 0;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+  }
+ 
+}
+
+/* Настольные компьютеры и ноутбуки */
+@media (min-width: 2000px) and (max-width: 3000px)  {
+  /* Ваши стили */
+  .navbar {
+    
+    height: 9em;
+   
+  }
+  
+  .navbar-brand {
+   margin-left: -13%;
+   margin-right: 25%;
+ 
+ }
+
+ .logo-text {
+    
+    font-size: 1.2em;
+    
+  }
+
+  .navbar-menu li {
+    font-size: 1.3em;
+  }
+
+  .right-image {
+    
+    margin-top: 1em;
+    
+  }
+  .text-container h1 {
+    font-size: 2.8em;
+    font-weight: 750;
+  }
+  .text-container p {
+    font-size: 1.3em;
+    
+    
+  }
+  .rounded-button {
+    
+    padding: 1em 2em;
+    font-size: 1.4em;
+    font-weight: 550;
+    
+  }
+  .text-second-container {
+    
+    font-size: 2em;
+  }
+  .text-third-container {
+    
+    font-size: 2em;
+  }
+  
+  .swiper-text {
+  
+    font-size: 3em;
+    
+    margin-top: 0.5em;
+  }
+  
+  .swiper-container {
+    width: 45%;
+    height: 125%; /* или любая другая высота */
+    
+  }
+  
+  
+  
+  .image-label {
+    
+    font-size: 1.7em;
+    
+  }
+  .next-steps {
+    background-color: #1e1d1def;
+    padding: 12em 0;
+    text-align: left;
+  
+    justify-content: center;
+  }
+  .next-steps h2 {
+    font-size: 3.3em;
+    
+    
+    
+  }
+  .steps {
+    margin-top: 7em; /* Увеличиваем верхний отступ */
+    margin-left: 40%; /* Отступ справа для выравнивания текста */
+  }
+  .step p {
+    
+    font-size: 1.5em;
+  
+  }
+  
+  .uber-uns-container {
+    
+    
+    padding: 2%;
+  
+    
+  }
+  .uber-uns-title {
+ 
+    font-size: 1.9rem;
+    
+  }
+  .white-underline::after {
+    
+    height: 2px;
+    
+  }
+  .feature-icon {
+    
+    width: 1.7em;
+    height: 1.7em;
+    
+    line-height: 1.7em;
+    font-size: 2em;
+    
+  }
+  .feature-text {
+    font-size: 1.3rem; /* Устанавливаем меньший размер шрифта */
+    font-weight: 650;
+  }
+  .uber-uns-text p {
+    font-size: 1.4rem;
+    line-height: 1.3;
+  }
+  .uber-uns-image img {
+    width: 90%;
+    
+    
+  }
+  .consultation-container {
+    
+    padding: 1.5%;
+    
+    width: 62%;
+  }
+  .consultation-container h2 {
+    
+    font-size: 3em;
+  }
+  .input-fields {
+    
+    gap: 7%;
+  }
+  
+  
+  .input-fields input {
+    padding: 2%;
+    font-size: 1.5em;
+    
+  }
+  
+  .input-fields button {
+    padding: 2% 3%;
+    font-size: 1.5em;
+   
+  }
+  
+  .thank-you-popup {
+   padding: 10em; /* Увеличено с 20px на 40px */
+    
+  }
+  
+  .thank-you-popup h3 {
+    
+    font-size: 3em; /* Увеличен размер шрифта */
+  }
+  
+  .thank-you-popup p {
+    
+    font-size: 2.3em; /* Увеличен размер шрифта */
+    
+  }
+  .close-btn {
+    
+    font-size: 1.7em;
+    
+    
+  }
+  .new-popup,
+.additional-popup {
+  width: 50%; /* Увеличьте ширину */
+  height: 30%; /* Сделайте высоту автоматической, чтобы она зависела от содержимого */
+  
+}
+
+.new-popup-btn {
+   padding: 2.5%; /* Размер кнопки зависит от ширины фона поп-апа (30% от ширины) */
+  border-radius: 24px;
+  font-size: 2em;
+  
+}
+
+.popup-text {
+  padding: 2em; /* Используем vw для отступов */
+}
+
+.popup-text p,
+.popup-text .contact-info span,
+.popup-text .final-text {
+  padding: 5px;
+  font-size: 1.6em; /* Используем vw для размера шрифта */
+}
+
+.popup-text .orange-text {
+  
+  font-size: 1.6em; /* Используем vw для размера шрифта */
+}
+
+/* Стили для нового поп-апа */
+.second {
+  /* стили будут похожи на стили вашего существующего поп-апа, но некоторые параметры будут изменены */
+  width: 30%; /* Увеличьте ширину */
+  height: 50%; /* Сделайте высоту автоматической, чтобы она зависела от содержимого */
+  font-size: 1.9em;
+}
+.popup-text-second {
+  margin-top: -10%;
+}
+.popup-text-second p {
+  margin-top: -2%;
+}
+
+.rounded-button-second {
+  padding: 3% 7%;
+  font-size: 1.5rem;
+ 
+}
+.input-fields-sec {
+  gap: 10%;
+  margin-top: 15%;
+}
+.input-fields-sec input {
+  padding: 2% 1%;
+  font-size: 0.9em;
+}
+footer {
+ 
+  padding: 3rem; /* less padding */
+ 
+}
+
+.logo {
+  width: 8em; /* smaller logo */
+  margin-left: 11%;
+}
+
+.impressum {
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.details {
+  
+  font-size: 1.3em; /* smaller text */
+}
+
+.datenschutz {
+  margin-top: 6em; /* Increased top margin */
+  font-weight: 600;
+  font-size: 2em; /* larger text */
+ 
+}
+.logo-texts {
+  
+  font-size: 1.3em;
+
+}
+}
+@media (min-width: 3001px)   {
+  /* Ваши стили */
+  .navbar {
+    
+    height: 11em;
+   
+  }
+  
+  .navbar-brand {
+   margin-left: -20%;
+   margin-right: 20%;
+ 
+ }
+
+ .logo-text {
+    
+    font-size: 1.6em;
+    
+  }
+
+  .navbar-menu li {
+    font-size: 1.7em;
+  }
+
+  .right-image {
+    
+    margin-top: 4em;
+    
+  }
+  .text-container h1 {
+    font-size: 3.8em;
+    font-weight: 750;
+  }
+  .text-container p {
+    font-size: 1.7em;
+    
+    
+  }
+  .rounded-button {
+    
+    padding: 1em 2em;
+    font-size: 1.8em;
+    font-weight: 550;
+    
+  }
+  .text-second-container {
+    
+    font-size: 3em;
+  }
+  .text-third-container {
+    
+    font-size: 3em;
+  }
+  
+  .swiper-text {
+  
+    font-size: 4em;
+    
+    margin-top: 0.5em;
+  }
+  
+  .swiper-container {
+    width: 40%;
+    height: 115%; /* или любая другая высота */
+    
+  }
+  
+  
+  
+  .image-label {
+    
+    font-size: 1.9em;
+    
+  }
+  .next-steps {
+   
+    padding: 20em 0;
+    
+  }
+  .next-steps h2 {
+    font-size: 4em;
+    
+    
+    
+  }
+  .steps {
+    margin-top: 9em; /* Увеличиваем верхний отступ */
+    margin-left: 40%; /* Отступ справа для выравнивания текста */
+  }
+  .step p {
+    
+    font-size: 2em;
+  
+  }
+  
+  .uber-uns-container {
+    
+    
+    padding: 3%;
+  
+    
+  }
+  .uber-uns-title {
+ 
+    font-size: 3em;
+    
+  }
+  .white-underline::after {
+    
+    height: 2px;
+    
+  }
+  .feature-icon {
+    
+    width: 1.7em;
+    height: 1.7em;
+    
+    line-height: 1.7em;
+    font-size: 2.2em;
+    
+  }
+  .feature-text {
+    font-size: 1.8em; /* Устанавливаем меньший размер шрифта */
+    font-weight: 650;
+  }
+  .uber-uns-text p {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+  .uber-uns-image img {
+    width: 100%;
+    
+    
+  }
+  .consultation-container {
+    
+    padding: 1.5%;
+    
+    width: 62%;
+  }
+  .consultation-container h2 {
+    
+    font-size: 4em;
+  }
+  .input-fields {
+    
+    gap: 7%;
+  }
+  
+  
+  .input-fields input {
+    padding: 1.5%;
+    font-size: 1.9em;
+    
+  }
+  
+  .input-fields button {
+    padding: 2% 3%;
+    font-size: 1.9em;
+   
+  }
+  
+  .thank-you-popup {
+   padding: 10em; /* Увеличено с 20px на 40px */
+    
+  }
+  
+  .thank-you-popup h3 {
+    
+    font-size: 4em; /* Увеличен размер шрифта */
+  }
+  
+  .thank-you-popup p {
+    
+    font-size: 2.6em; /* Увеличен размер шрифта */
+    
+  }
+  .close-btn {
+    
+    font-size: 2em;
+    
+    
+  }
+  .new-popup,
+.additional-popup {
+  width: 50%; /* Увеличьте ширину */
+  height: 30%; /* Сделайте высоту автоматической, чтобы она зависела от содержимого */
+  
+}
+
+.new-popup-btn {
+   padding: 2.5%; /* Размер кнопки зависит от ширины фона поп-апа (30% от ширины) */
+  border-radius: 24px;
+  font-size: 2em;
+  
+}
+
+.popup-text {
+  padding: 2.2em; /* Используем vw для отступов */
+}
+
+.popup-text p,
+.popup-text .contact-info span,
+.popup-text .final-text {
+  padding: 5px;
+  font-size: 2em; /* Используем vw для размера шрифта */
+}
+
+.popup-text .orange-text {
+  
+  font-size: 2em; /* Используем vw для размера шрифта */
+}
+
+/* Стили для нового поп-апа */
+.second {
+  /* стили будут похожи на стили вашего существующего поп-апа, но некоторые параметры будут изменены */
+  width: 30%; /* Увеличьте ширину */
+  height: 50%; /* Сделайте высоту автоматической, чтобы она зависела от содержимого */
+  font-size: 2.3em;
+}
+.popup-text-second {
+  margin-top: -10%;
+}
+.popup-text-second p {
+  margin-top: -2%;
+}
+
+.rounded-button-second {
+  padding: 3% 7%;
+  font-size: 1.5rem;
+ 
+}
+.input-fields-sec {
+  gap: 10%;
+  margin-top: 15%;
+}
+.input-fields-sec input {
+  padding: 2% 1%;
+  font-size: 0.9em;
+}
+footer {
+ 
+  padding: 3rem; /* less padding */
+ 
+}
+
+.logo {
+  width: 8em; /* smaller logo */
+  margin-left: 11%;
+}
+
+.impressum {
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.details {
+  
+  font-size: 1.3em; /* smaller text */
+}
+
+.datenschutz {
+  margin-top: 6em; /* Increased top margin */
+  font-weight: 600;
+  font-size: 2em; /* larger text */
+ 
+}
+.logo-texts {
+  
+  font-size: 1.3em;
+
+}
+}
+
+/* Большие мониторы */
+@media (min-width: 1400px) and (max-width: 1999px){
+  /* Ваши стили */
+
+  .navbar {
+    
+    height: 100px;
+   
+  }
+  
+  .navbar-brand {
+   margin-left: -3%;
+   margin-right: 14%;
+ 
+ }
+
+ .logo-text {
+    
+    font-size: 14px;
+    
+  }
+
+  .navbar-menu li {
+    font-size: 15px;
+  }
+
+  .right-image {
+    
+    margin-top: 1rem;
+    
+  }
+  .text-container h1 {
+    font-size: 1.9rem;
+    font-weight: 750;
+  }
+  .text-container p {
+    font-size: 0.8rem;
+    
+    
+  }
+  .rounded-button {
+    
+    padding: 14px 22px;
+    font-size: 14px;
+    font-weight: 550;
+    
+  }
+  .text-second-container {
+    
+    font-size: 1.3rem;
+  }
+  .text-third-container {
+    
+    font-size: 1.3rem;
+  }
+  .swiper-text {
+    
+    font-size: 1.9em;
+    
+  }
+  .image-label {
+    
+    font-size: 17px;
+    
+  }
+  .next-steps {
+    background-color: #1e1d1def;
+    padding: 120px 0;
+    text-align: left;
+  
+    justify-content: center;
+  }
+  .next-steps h2 {
+    font-size: 32px;
+    
+    
+    
+  }
+  .steps {
+    margin-top: 70px; /* Увеличиваем верхний отступ */
+    margin-left: 40%; /* Отступ справа для выравнивания текста */
+  }
+  .step p {
+    
+    font-size: 15px;
+  
+  }
+  
+  .uber-uns-container {
+    
+    
+    padding: 4%;
+  
+    
+  }
+  .uber-uns-title {
+ 
+    font-size: 1.9rem;
+    
+  }
+  .white-underline::after {
+    
+    height: 2px;
+    
+  }
+  .feature-icon {
+    
+    width: 1.8rem;
+    height: 1.8rem;
+    
+    line-height: 1.4rem;
+    font-size: 1.3rem;
+    
+  }
+  .feature-text {
+    font-size: 1rem; /* Устанавливаем меньший размер шрифта */
+    font-weight: 650;
+  }
+  .uber-uns-text p {
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+  .uber-uns-image img {
+    width: 90%;
+    
+    
+  }
+  .consultation-container {
+    
+    padding: 1.5%;
+    
+    width: 62%;
+  }
+  .consultation-container h2 {
+    
+    font-size: 1.5rem;
+  }
+  .input-fields {
+    
+    gap: 8%;
+  }
+  
+  
+  .input-fields input {
+    padding: 2%;
+    font-size: 1em;
+    
+  }
+  
+  .input-fields button {
+    padding: 2% 3%;
+    font-size: 15px;
+   
+  }
+  
+  .thank-you-popup {
+   padding: 10em; /* Увеличено с 20px на 40px */
+    
+  }
+  
+  .thank-you-popup h3 {
+    
+    font-size: 2.2em; /* Увеличен размер шрифта */
+  }
+  
+  .thank-you-popup p {
+    
+    font-size: 1.4em; /* Увеличен размер шрифта */
+    
+  }
+  .close-btn {
+    
+    font-size: 1.4rem;
+    
+    
+  }
+  .new-popup,
+.additional-popup {
+  width: 50%; /* Увеличьте ширину */
+  height: 30%; /* Сделайте высоту автоматической, чтобы она зависела от содержимого */
+  
+}
+
+.new-popup-btn {
+   padding: 2.5%; /* Размер кнопки зависит от ширины фона поп-апа (30% от ширины) */
+  border-radius: 24px;
+  
+}
+
+.popup-text {
+  padding: 2em; /* Используем vw для отступов */
+}
+
+.popup-text p,
+.popup-text .contact-info span,
+.popup-text .final-text {
+  padding: 5px;
+  font-size: 1.2em; /* Используем vw для размера шрифта */
+}
+
+.popup-text .orange-text {
+  
+  font-size: 1.2em; /* Используем vw для размера шрифта */
+}
+
+/* Стили для нового поп-апа */
+.second {
+  /* стили будут похожи на стили вашего существующего поп-апа, но некоторые параметры будут изменены */
+  width: 32%; /* Увеличьте ширину */
+  height: 50%; /* Сделайте высоту автоматической, чтобы она зависела от содержимого */
+  font-size: 1.3em;
+}
+.popup-text-second {
+  margin-top: -10%;
+}
+.popup-text-second p {
+  margin-top: -2%;
+}
+
+.rounded-button-second {
+  padding: 3% 7%;
+  font-size: 1rem;
+ 
+}
+.input-fields-sec {
+  gap: 10%;
+  margin-top: 15%;
+}
+.input-fields-sec input {
+  padding: 2% 1%;
+  font-size: 0.9em;
+}
+footer {
+ 
+  padding: 3rem; /* less padding */
+ 
+}
+
+.logo {
+  width: 5rem; /* smaller logo */
+  margin-left: 9%;
+}
+
+.impressum {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.details {
+  
+  font-size: 0.7rem; /* smaller text */
+}
+
+.datenschutz {
+  margin-top: 3rem; /* Increased top margin */
+  font-weight: 600;
+  font-size: 1.5em; /* larger text */
+ 
+}
+.logo-texts {
+  
+  font-size: 0.8rem;
+
+}
+
+}

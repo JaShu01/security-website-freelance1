@@ -126,7 +126,7 @@ function initDesktop() {
     formDataDetails.append('contact', nameInputDetails.value);
     formDataDetails.append('message', contactInputDetails.value);
 
-    fetch('https://formspree.io/f/xdoryoqr', {
+    fetch('', {
         method: 'POST',
         body: formDataDetails,
         mode: 'no-cors'
